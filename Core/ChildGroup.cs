@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class ChildGroup : IEnumerable<SqlExpression>
     {

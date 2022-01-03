@@ -2,7 +2,7 @@
 using System.Data;
 using Irvin.Parser;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class ModuleParameter : VariableInitializationExpression, IParameterInfo
     {

@@ -6,6 +6,7 @@
         <PackageId>Irvin.SqlParser</PackageId>
         <PackageVersion>0.0.1</PackageVersion>
         <Authors>Nate Irvin</Authors>
+        <RootNamespace>Irvin.SqlParser</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

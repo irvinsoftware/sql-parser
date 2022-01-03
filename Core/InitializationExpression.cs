@@ -3,7 +3,7 @@ using System.Data;
 using Irvin.Extensions;
 using Irvin.Parser;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class InitializationExpression : SqlExpression
     {

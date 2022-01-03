@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Irvin.Parser;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class SqlParser : Parser.Parser
     {

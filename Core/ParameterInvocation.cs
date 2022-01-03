@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class ParameterInvocation : SqlExpression, IParameterInfo
     {

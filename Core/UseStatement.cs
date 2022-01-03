@@ -1,4 +1,4 @@
-﻿namespace Irvin.SqlFountain.Core
+﻿namespace Irvin.SqlParser
 {
     public class UseStatement : SqlStatement
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class DeclareVariablesStatement : SqlStatement
     {

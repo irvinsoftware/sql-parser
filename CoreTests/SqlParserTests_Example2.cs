@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Irvin.SqlFountain.Core;
+using Irvin.SqlParser;
 using NUnit.Framework;
 
 namespace CoreTests

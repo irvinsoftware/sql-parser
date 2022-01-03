@@ -1,7 +1,6 @@
-﻿using System;
-using Irvin.Parser;
+﻿using Irvin.Parser;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class Name : SqlExpression
     {

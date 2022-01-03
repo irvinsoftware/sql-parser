@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class SqlStatement : SqlExpression
     {

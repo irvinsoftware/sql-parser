@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class ObjectAddress
         : SqlExpression

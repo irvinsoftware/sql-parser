@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Irvin.Extensions.Collections;
 using Irvin.Parser;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class SqlExpression
     {

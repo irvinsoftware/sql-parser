@@ -1,4 +1,4 @@
-﻿namespace Irvin.SqlFountain.Core
+﻿namespace Irvin.SqlParser
 {
     public class BatchSeparator : SqlExpression
     {

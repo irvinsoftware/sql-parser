@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class SqlCodeUnit : SqlExpression
     {

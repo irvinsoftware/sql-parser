@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Irvin.Parser;
 
-namespace Irvin.SqlFountain.Core
+namespace Irvin.SqlParser
 {
     public class NativeFunctions
     {
