@@ -67,7 +67,7 @@
     <Compile Include="SqlParserTests_Example2.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="2.6.3" />
+    <PackageReference Include="NUnit" Version="3.13.2" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">

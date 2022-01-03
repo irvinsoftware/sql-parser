@@ -12,7 +12,7 @@ namespace CoreTests
 
         protected abstract string FileName { get; }
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void RunFirstOnce()
         {
             _fileContents = File.ReadAllText(FileName);
