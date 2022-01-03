@@ -1,0 +1,6 @@
+[submodule "parser-foundation"]
+	path = parser-foundation
+	url = git@github.com:irvinsoftware/parser-foundation.git
+[submodule "system-extensions"]
+	path = system-extensions
+	url = git@github.com:irvinsoftware/system-extensions.git

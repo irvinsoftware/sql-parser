@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB6C0FBD-C6C3-4870-8E04-45C58FB706C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Irvin.SqlFountain.Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BatchSeparator.cs" />
+    <Compile Include="BeginKeyword.cs" />
+    <Compile Include="CaseExpression.cs" />
+    <Compile Include="ChildGroup.cs" />
+    <Compile Include="ColumnAddress.cs" />
+    <Compile Include="ColumnExpression.cs" />
+    <Compile Include="CommonTableExpression.cs" />
+    <Compile Include="DataTypeExpression.cs" />
+    <Compile Include="DeclareVariablesStatement.cs" />
+    <Compile Include="EqualityExpression.cs" />
+    <Compile Include="EqualityOperator.cs" />
+    <Compile Include="ExecutionOption.cs" />
+    <Compile Include="ExecutionOptionState.cs" />
+    <Compile Include="FunctionInvocation.cs" />
+    <Compile Include="IfStatement.cs" />
+    <Compile Include="InitializationExpression.cs" />
+    <Compile Include="IParameterInfo.cs" />
+    <Compile Include="JoinKind.cs" />
+    <Compile Include="JoinSpecification.cs" />
+    <Compile Include="LiteralValue.cs" />
+    <Compile Include="ModuleParameter.cs" />
+    <Compile Include="Name.cs" />
+    <Compile Include="NativeFunctions.cs" />
+    <Compile Include="NullKeyword.cs" />
+    <Compile Include="ObjectAddress.cs" />
+    <Compile Include="ObjectDefintionAction.cs" />
+    <Compile Include="ParameterInvocation.cs" />
+    <Compile Include="ProcedureInvocation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectExpression.cs" />
+    <Compile Include="SelectStatement.cs" />
+    <Compile Include="SetVariablesStatement.cs" />
+    <Compile Include="SqlParserSettings.cs" />
+    <Compile Include="SetOptionStatement.cs" />
+    <Compile Include="SqlCodeUnit.cs" />
+    <Compile Include="SqlComment.cs" />
+    <Compile Include="SqlExpression.cs" />
+    <Compile Include="SqlParser.cs" />
+    <Compile Include="SqlStatement.cs" />
+    <Compile Include="StoredProcedureStatement.cs" />
+    <Compile Include="TableInsertStatement.cs" />
+    <Compile Include="TableReference.cs" />
+    <Compile Include="TransactionAction.cs" />
+    <Compile Include="TransactionDirective.cs" />
+    <Compile Include="UseStatement.cs" />
+    <Compile Include="ExtraMark.cs" />
+    <Compile Include="VariableInitializationExpression.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ParserFoundation, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ParserFoundation.1.0.1\lib\netstandard2.0\ParserFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="SystemExtensions, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Irvin.SystemExtensions.1.2.0\lib\netstandard2.0\SystemExtensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
