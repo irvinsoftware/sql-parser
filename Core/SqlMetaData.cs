@@ -11,78 +11,99 @@ namespace Irvin.SqlParser
     {
         public async Task<Database> LoadByConnectionString(string connectionString, IProgress<int> progressReporter, CancellationToken cancellationToken)
         {
-            Database database = new Database();
+            Extractor actor = new Extractor(progressReporter);
+            actor.ConnectionString = connectionString;
+            actor.CancellationToken = cancellationToken;
+            
+            await actor.Load();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            return actor.Database;
+        }
+
+        private class Extractor
+        {
+            private readonly IProgress<int> _progressReporter;
+
+            public Extractor(IProgress<int> progressReporter)
             {
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = @"
-                        SELECT [name] AS [filegroup_name], is_default 
-                        FROM sys.filegroups
-                        ORDER BY 1
-                        
-                        SELECT
-	                        [schemas].[schema_id],
-	                        [schemas].[name] AS [schema_name]
-                        INTO #schemas
-                        FROM sys.schemas
-                            LEFT JOIN sys.database_principals
-                                ON schemas.principal_id = database_principals.principal_id
-                                AND database_principals.[type_desc] = 'DATABASE_ROLE'
-                        WHERE schemas.[name] NOT IN ('INFORMATION_SCHEMA','cdc','guest')
-                            AND database_principals.[name] IS NULL	
+                _progressReporter = progressReporter;
+            }
+            
+            public string ConnectionString { get; set; }
+            public CancellationToken CancellationToken { get; set; }
+            public Database Database { get; private set; }
 
-                        SELECT [schema_name] 
-                        FROM #schemas
-                        WHERE [schema_name] NOT IN ('sys')
-                        ORDER BY 1
-                    ";
-                    
-                    await connection.OpenAsync(cancellationToken);
-                    using (SqlDataReader reader = await command.ExecuteReaderAsync(cancellationToken))
+            public async Task Load()
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand command = connection.CreateCommand())
                     {
-                        var dataSetCount = 11.0M;
+                        command.CommandText = @"
+                            SELECT [name] AS [filegroup_name], is_default 
+                            FROM sys.filegroups
+                            ORDER BY 1
+                            
+                            SELECT
+	                            [schemas].[schema_id],
+	                            [schemas].[name] AS [schema_name]
+                            INTO #schemas
+                            FROM sys.schemas
+                                LEFT JOIN sys.database_principals
+                                    ON schemas.principal_id = database_principals.principal_id
+                                    AND database_principals.[type_desc] = 'DATABASE_ROLE'
+                            WHERE schemas.[name] NOT IN ('INFORMATION_SCHEMA','cdc','guest')
+                                AND database_principals.[name] IS NULL	
+
+                            SELECT [schema_name] 
+                            FROM #schemas
+                            WHERE [schema_name] NOT IN ('sys')
+                            ORDER BY 1
+                        ";
+                    
+                        await connection.OpenAsync(CancellationToken);
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync(CancellationToken))
+                        {
+                            var dataSetCount = 11.0M;
                         
-                        database.Filegroups = await ReadSimpleList(reader, ReadFilegroup, cancellationToken);
-                        progressReporter.Report((int)(1 / dataSetCount * 100));
+                            Database.Filegroups = await ReadSimpleList(reader, ReadFilegroup);
+                            _progressReporter.Report((int)(1 / dataSetCount * 100));
                         
-                        database.Schemas = await ReadSimpleList(reader, ReadSchema, cancellationToken);
-                        progressReporter.Report((int)(2 / dataSetCount * 100));
+                            Database.Schemas = await ReadSimpleList(reader, ReadSchema);
+                            _progressReporter.Report((int)(2 / dataSetCount * 100));
+                        }
                     }
                 }
             }
-
-            return database;
-        }
-
-        private static async Task<List<T>> ReadSimpleList<T>(SqlDataReader reader, Func<IDataRecord, T> builder, CancellationToken cancellationToken)
-        {
-            List<T> list = new List<T>();
-
-            while (await reader.ReadAsync(cancellationToken))
+            
+            private async Task<List<T>> ReadSimpleList<T>(SqlDataReader reader, Func<IDataRecord, T> builder)
             {
-                list.Add(builder(reader));
+                List<T> list = new List<T>();
+
+                while (await reader.ReadAsync(CancellationToken))
+                {
+                    list.Add(builder(reader));
+                }
+
+                await reader.NextResultAsync(CancellationToken);
+
+                return list;
             }
 
-            await reader.NextResultAsync(cancellationToken);
+            private static Filegroup ReadFilegroup(IDataRecord record)
+            {
+                Filegroup filegroup = new Filegroup();
+                filegroup.Name = record["filegroup_name"].ToString();
+                filegroup.IsDefault = Convert.ToBoolean(record["is_default"]);
+                return filegroup;
+            }
 
-            return list;
-        }
-
-        private static Filegroup ReadFilegroup(IDataRecord record)
-        {
-            Filegroup filegroup = new Filegroup();
-            filegroup.Name = record["filegroup_name"].ToString();
-            filegroup.IsDefault = Convert.ToBoolean(record["is_default"]);
-            return filegroup;
-        }
-
-        private static Schema ReadSchema(IDataRecord record)
-        {
-            Schema schema = new Schema();
-            schema.Name = record["schema_name"].ToString();
-            return schema;
+            private static Schema ReadSchema(IDataRecord record)
+            {
+                Schema schema = new Schema();
+                schema.Name = record["schema_name"].ToString();
+                return schema;
+            }
         }
     }
 }
