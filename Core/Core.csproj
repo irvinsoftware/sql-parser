@@ -7,6 +7,8 @@
         <PackageVersion>0.0.1</PackageVersion>
         <Authors>Nate Irvin</Authors>
         <RootNamespace>Irvin.SqlParser</RootNamespace>
+        <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>
