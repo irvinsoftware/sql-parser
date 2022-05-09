@@ -6,5 +6,10 @@ namespace Irvin.SqlParser
     {
         public List<Filegroup> Filegroups { get; set; }
         public List<Schema> Schemas { get; set; }
+
+        public Schema FindOrCreateSchema(string schemaName)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
