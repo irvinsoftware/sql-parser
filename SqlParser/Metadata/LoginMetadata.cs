@@ -1,11 +1,14 @@
-﻿namespace Irvin.SqlParser.Metadata;
+﻿using System;
 
-public class LoginMetadata
+namespace Irvin.SqlParser.Metadata
 {
-    public string Name { get; }
-    public PrincipalKind Kind { get; set; }
-    public string DefaultDatabaseName { get; }
-    public string LanguageName { get; }
-    public DateTime Created { get; }
-    public DateTime LastUpdated { get; }
+    public class LoginMetadata
+    {
+        public string Name { get; }
+        public PrincipalKind Kind { get; set; }
+        public string DefaultDatabaseName { get; }
+        public string LanguageName { get; }
+        public DateTime Created { get; }
+        public DateTime LastUpdated { get; }
+    }
 }

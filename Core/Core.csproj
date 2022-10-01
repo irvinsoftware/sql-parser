@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>Irvin.SqlParser</PackageId>
         <PackageVersion>0.0.1</PackageVersion>
@@ -9,6 +8,7 @@
         <RootNamespace>Irvin.SqlParser</RootNamespace>
         <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
+        <TargetFrameworks>netstandard2.1</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>

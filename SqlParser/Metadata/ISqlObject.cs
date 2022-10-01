@@ -1,12 +1,15 @@
-﻿namespace Irvin.SqlParser.Metadata;
+﻿using System;
 
-public interface ISqlObject
+namespace Irvin.SqlParser.Metadata
 {
-    int ID { get; }
-    string SchemaName { get; set; }
-    string Name { get; }
-    bool IsSystemNamed { get; }
-    DateTime Created { get; }
-    DateTime LastUpdated { get; }
-    public bool IsInDefaultInstallation { get; set; }
+    public interface ISqlObject
+    {
+        int ID { get; }
+        string SchemaName { get; set; }
+        string Name { get; }
+        bool IsSystemNamed { get; }
+        DateTime Created { get; }
+        DateTime LastUpdated { get; }
+        public bool IsInDefaultInstallation { get; set; }
+    }
 }

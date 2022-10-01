@@ -1,8 +1,9 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public enum KeyConstraintKind
+﻿namespace Irvin.SqlParser.Metadata
 {
-    Primary,
-    Foreign,
-    Unique
+    public enum KeyConstraintKind
+    {
+        Primary,
+        Foreign,
+        Unique
+    }
 }

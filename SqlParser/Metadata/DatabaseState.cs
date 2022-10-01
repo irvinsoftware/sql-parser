@@ -1,14 +1,15 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public enum DatabaseState
+﻿namespace Irvin.SqlParser.Metadata
 {
-    Online,
-    Restoring,
-    Recovering,
-    RecoveryPending,
-    Suspect,
-    Emergency,
-    Offline,
-    Copying,
-    OfflineSecondary
+    public enum DatabaseState
+    {
+        Online,
+        Restoring,
+        Recovering,
+        RecoveryPending,
+        Suspect,
+        Emergency,
+        Offline,
+        Copying,
+        OfflineSecondary
+    }
 }

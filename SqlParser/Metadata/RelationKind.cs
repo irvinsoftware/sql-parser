@@ -1,10 +1,11 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public enum RelationKind
+﻿namespace Irvin.SqlParser.Metadata
 {
-    StandardTable,
-    FileTable,
-    InMemoryTable,
-    View,
-    TableType
+    public enum RelationKind
+    {
+        StandardTable,
+        FileTable,
+        InMemoryTable,
+        View,
+        TableType
+    }
 }

@@ -1,25 +1,29 @@
-﻿namespace Irvin.SqlParser.Metadata;
+﻿using System;
+using System.Collections.Generic;
 
-public class RelationMetadata : ISqlObject
+namespace Irvin.SqlParser.Metadata
 {
-    public RelationMetadata()
+    public class RelationMetadata : ISqlObject
     {
-        Columns = new List<ColumnMetadata>();
-        Keys = new List<KeyMetadata>();
-        Indexes = new List<IndexMetadata>();
-        CheckConstraints = new List<CheckConstraint>();
+        public RelationMetadata()
+        {
+            Columns = new List<ColumnMetadata>();
+            Keys = new List<KeyMetadata>();
+            Indexes = new List<IndexMetadata>();
+            CheckConstraints = new List<CheckConstraint>();
+        }
+
+        public int ID { get; }
+        public string SchemaName { get; set; }
+        public string Name { get; set; }
+        public bool IsSystemNamed { get; }
+        public RelationKind Kind { get; set; }
+        public List<ColumnMetadata> Columns { get; }
+        public List<KeyMetadata> Keys { get; }
+        public List<IndexMetadata> Indexes { get; }
+        public List<CheckConstraint> CheckConstraints { get; }
+        public DateTime Created { get; }
+        public DateTime LastUpdated { get; }
+        public bool IsInDefaultInstallation { get; set; }
     }
-    
-    public int ID { get; }
-    public string SchemaName { get; set; }
-    public string Name { get; set; }
-    public bool IsSystemNamed { get; }
-    public RelationKind Kind { get; set; }
-    public List<ColumnMetadata> Columns { get; }
-    public List<KeyMetadata> Keys { get; }
-    public List<IndexMetadata> Indexes { get; }
-    public List<CheckConstraint> CheckConstraints { get; }
-    public DateTime Created { get; }
-    public DateTime LastUpdated { get; }
-    public bool IsInDefaultInstallation { get; set; }
 }

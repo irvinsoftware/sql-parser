@@ -1,10 +1,11 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public enum PrincipalKind
+﻿namespace Irvin.SqlParser.Metadata
 {
-    NativeLogin,
-    NativeGroup,
-    DatabaseRole,
-    DirectoryLogin,
-    DirectoryGroup
+    public enum PrincipalKind
+    {
+        NativeLogin,
+        NativeGroup,
+        DatabaseRole,
+        DirectoryLogin,
+        DirectoryGroup
+    }
 }

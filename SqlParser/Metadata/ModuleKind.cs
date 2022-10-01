@@ -1,8 +1,9 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public enum ModuleKind
+﻿namespace Irvin.SqlParser.Metadata
 {
-    StoredProcedure,
-    Function,
-    Trigger
+    public enum ModuleKind
+    {
+        StoredProcedure,
+        Function,
+        Trigger
+    }
 }

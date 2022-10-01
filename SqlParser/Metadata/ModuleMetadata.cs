@@ -1,22 +1,26 @@
-﻿namespace Irvin.SqlParser.Metadata;
+﻿using System;
+using System.Collections.Generic;
 
-public class ModuleMetadata : ISqlObject
+namespace Irvin.SqlParser.Metadata
 {
-    public ModuleMetadata()
+    public class ModuleMetadata : ISqlObject
     {
-        Parameters = new List<ParameterMetadata>();
+        public ModuleMetadata()
+        {
+            Parameters = new List<ParameterMetadata>();
+        }
+
+        public int ID { get; }
+        public string SchemaName { get; set; }
+        public string Name { get; set; }
+        public bool IsSystemNamed { get; }
+        public ModuleKind Kind { get; set; }
+        public string ParentTableName { get; set; }
+        public string Text { get; set; }
+        public List<ParameterMetadata> Parameters { get; }
+        public DateTime Created { get; }
+        public DateTime LastUpdated { get; }
+        public bool IsInDefaultInstallation { get; set; }
+        public bool IsEnabled { get; set; }
     }
-    
-    public int ID { get; }
-    public string SchemaName { get; set; }
-    public string Name { get; set; }
-    public bool IsSystemNamed { get; }
-    public ModuleKind Kind { get; set; }
-    public string ParentTableName { get; set; }
-    public string Text { get; set; }
-    public List<ParameterMetadata> Parameters { get; }
-    public DateTime Created { get; }
-    public DateTime LastUpdated { get; }
-    public bool IsInDefaultInstallation { get; set; }
-    public bool IsEnabled { get; set; }
 }

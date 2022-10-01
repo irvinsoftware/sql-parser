@@ -1,8 +1,9 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public enum IndexStructureKind
+﻿namespace Irvin.SqlParser.Metadata
 {
-    Clustered,
-    NonClustered,
-    ColumnStore
+    public enum IndexStructureKind
+    {
+        Clustered,
+        NonClustered,
+        ColumnStore
+    }
 }

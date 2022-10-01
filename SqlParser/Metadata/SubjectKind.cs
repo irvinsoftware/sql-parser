@@ -1,9 +1,10 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public enum SubjectKind
+﻿namespace Irvin.SqlParser.Metadata
 {
-    Database,
-    Object,
-    Column,
-    Type
+    public enum SubjectKind
+    {
+        Database,
+        Object,
+        Column,
+        Type
+    }
 }

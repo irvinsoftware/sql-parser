@@ -1,8 +1,9 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public enum AccessMode
+﻿namespace Irvin.SqlParser.Metadata
 {
-    Grant,
-    Deny,
-    Revoke
+    public enum AccessMode
+    {
+        Grant,
+        Deny,
+        Revoke
+    }
 }

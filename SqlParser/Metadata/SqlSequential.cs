@@ -1,7 +1,8 @@
-﻿namespace Irvin.SqlParser.Metadata;
-
-public class SqlSequential
+﻿namespace Irvin.SqlParser.Metadata
 {
-    public long StartValue { get; set; }
-    public long IncrementValue { get; set; }
+    public class SqlSequential
+    {
+        public long StartValue { get; set; }
+        public long IncrementValue { get; set; }
+    }
 }
