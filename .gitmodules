@@ -4,3 +4,6 @@
 [submodule "system-extensions"]
 	path = system-extensions
 	url = git@github.com:irvinsoftware/system-extensions.git
+[submodule "fludal"]
+	path = fludal
+	url = git@github.com:irvinsoftware/fludal.git
